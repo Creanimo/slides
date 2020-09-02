@@ -1,1 +1,1922 @@
-Platzhalter
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Principles &amp; History of Animation</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- REVEAL CSS-->
+  <link rel="stylesheet" href="libs/reveal.js/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/reveal.js/3.8.0/css/reveal.css">
+  
+  <link rel="stylesheet" href="libs/reveal.js/3.8.0/css/theme/night.css" id="theme">
+  
+  
+  <link rel="stylesheet" href="libs/reveal.js/3.8.0/plugin/title-footer/title-footer-mod.css" />
+
+  <!-- MERMAID-->
+  <script src="libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js"></script>
+  <style>
+  .mermaid {
+    font-size: 0.5em;
+  }
+  </style>
+
+  <style>
+    [class*=task-list-item] {
+    min-height: 22px;
+    margin-top: 6px!important;
+    margin-bottom: 6px!important;
+    padding-left: 0;
+    list-style: none;
+}
+
+[class*=task-list-item]>input:first-child {
+    position: absolute!important;
+    opacity: 0;
+    margin: 0;
+}
+[class*=task-list-item]>label {
+    padding-left: 29px!important;
+    min-height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.task-list-item>input:first-child:checked+input[type=hidden]+label::before, .task-list-item>input:first-child:checked+label::before {
+    background-color: #ecf0f1;
+    border-color: #ecf0f1;
+}
+
+[class*=task-list-item]>input:first-child+input[type=hidden]+label::before, [class*=task-list-item]>input:first-child+label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #D3CFC8;
+    border-radius: 0;
+    margin-left: -29px;
+}
+
+
+[class*=task-list-item]>input:first-child:checked+input[type=hidden]+label::after, [class*=task-list-item]>input:first-child:checked+label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-left: none;
+    border-top: none;
+    transform: translate(7.75px,4.5px) rotate(45deg);
+    -ms-transform: translate(7.75px,4.5px) rotate(45deg);
+}
+
+
+.task-list-item>input:first-child:checked+input[type=hidden]+label::after, .task-list-item>input:first-child:checked+label::after {
+    border-bottom-color: #95a5a6;
+    border-right-color: #95a5a6;
+}
+  </style>
+
+  <!-- Theme used for syntax highlighting of code -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/9.12.0/monokai.css">
+  
+
+  
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/3.8.0/css/print/pdf.css' : 'libs/reveal.js/3.8.0/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+    /* Solarized Light theme */
+     .line {
+      display: block;
+    }
+    
+
+    .line.focus {
+      background: #fdf6e3;
+      color: #657b83;
+    }
+
+/*
+    .line.focus .hljs-comment,
+    .line.focus .hljs-quote {
+      color: #93a1a1;
+    }
+
+    .line.focus .hljs-keyword,
+    .line.focus .hljs-selector-tag,
+    .line.focus .hljs-addition {
+      color: #859900;
+    }
+
+    .line.focus .hljs-number,
+    .line.focus .hljs-string,
+    .line.focus .hljs-meta .hljs-meta-string,
+    .line.focus .hljs-literal,
+    .line.focus .hljs-doctag,
+    .line.focus .hljs-regexp {
+      color: #2aa198;
+    }
+
+    .line.focus .hljs-title,
+    .line.focus .hljs-section,
+    .line.focus .hljs-name,
+    .line.focus .hljs-selector-id,
+    .line.focus .hljs-selector-class {
+      color: #268bd2;
+    }
+
+    .line.focus .hljs-attribute,
+    .line.focus .hljs-attr,
+    .line.focus .hljs-variable,
+    .line.focus .hljs-template-variable,
+    .line.focus .hljs-class .hljs-title,
+    .line.focus .hljs-type {
+      color: #b58900;
+    }
+
+    .line.focus .hljs-symbol,
+    .line.focus .hljs-bullet,
+    .line.focus .hljs-subst,
+    .line.focus .hljs-meta,
+    .line.focus .hljs-meta .hljs-keyword,
+    .line.focus .hljs-selector-attr,
+    .line.focus .hljs-selector-pseudo,
+    .line.focus .hljs-link {
+      color: #cb4b16;
+    }
+
+    .line.focus .hljs-built_in,
+    .line.focus .hljs-deletion {
+      color: #dc322f;
+    }
+
+    .line.focus .hljs-formula {
+      background: #eee8d5;
+    }
+
+    .line.focus .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .line.focus .hljs-strong {
+      font-weight: bold;
+    }
+
+    .yellow-slide .line.focus:nth-child(2) {
+      background: yellow;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      font-size: 70%;
+    }
+    */
+
+    .reveal .slides section .fragment.current-only {
+      visibility: visible;
+      display: none;
+    }
+
+    .reveal .slides section .fragment.current-only.current-fragment {
+      display: block;
+    }
+
+/*
+    .line {
+      display: block;
+    }
+*/
+    .line.focus {
+       opacity: 1.0;
+    } 
+
+    /* .hljs {
+      background: none;
+    } */
+
+    /* .reveal pre {
+      width: 98%;
+      margin: 0px;
+      box-shadow: none;
+    }
+
+    .reveal pre code {
+      font-size: 1.2em;
+      line-height: 1.2;
+      border-radius: 10px;
+      max-height: 60vh !important;
+      overflow: hidden !important;
+    } */
+
+    @media (device-width: 100vw) and (device-height: 100vh) {
+      .reveal pre code {
+        max-height: 50vh !important;
+      }
+    }
+
+    #logo img {
+      max-height: 3.5em;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      color: white;
+      background: black;
+      padding: 0px 15px;
+      border-radius: 15px;
+      opacity: 0.75 !important;
+      font-size: 50% !important;
+    }
+  </style>
+  <script>
+    if (window.location.search.match(/print-pdf-now/gi)) {
+      window.print();
+    }
+  </script>
+</head>
+
+<body>
+  
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+        <section >
+            
+            <h1><a id="user-content-storyboarding" class="anchor" href="#storyboarding" aria-hidden="true"></a>Storyboarding</h1>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"></a>Definition?</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Die Umsetzung des Drehbuchs in eine Bildsequenz - ähnlich wie ein Comic.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Anders als beim Comic ist die visuelle Erzählung als Vorschau auf das filmische Endformat gedacht</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>d.h. Bildformat ist das Produktionsformat des Filmes (z.B. 16:9)</p>
+<p>Text steht unter/neben dem Panel (oder wird vom Artist vorgeführt)</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-präsentationsform" class="anchor" href="#präsentationsform" aria-hidden="true"></a>Präsentationsform</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>An einem Board - live Performance</p>
+<iframe width="420" height="315" data-src="https://www.youtube.com/embed/QOeaC8kcxH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ausgedruckt</p>
+<p><img src="img/1280px-Storyboard_for_The_Radio_Adventures_of_Dr._Floyd.jpg" alt="" width="800"></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Als Bildershow</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Als Animatic (Story Reel)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JgAP_zikDLw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-die-probleme-einer-produktion" class="anchor" href="#die-probleme-einer-produktion" aria-hidden="true"></a>Die Probleme einer Produktion</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><strong>Wenn man Dinge umsetzt, sehen sie anders aus als im Kopf.</strong></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Das Storyboard ermöglicht eine schnelle Vorschau und kann es weiterentwickeln bis alles wie gewünscht wirkt.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><strong>Umsetzung kostet Zeit und Geld</strong></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Fehler im Storyboard hat man schneller korrigiert als bei finalen Assets und Animationen.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><strong>Was muss überhaupt gemacht werden</strong></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ein entwickeltes Storyboard ist wie ein Bauplan. Es hält visuelle Entscheidungen fest, die dann umgesetzt werden können.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Gute Gedächtnisstütze, wenn man alleine arbeitet</p>
+<p>Unerlässlich für die Teamarbeit</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><strong>Ein gutes Storyboard vermeidet:</strong></p>
+<ul>
+<li>Zeitverschwendung mit unnötigen Details</li>
+<li>Ein Endergebnis, das nicht funktioniert</li>
+<li>Missverständnisse im Team</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-der-ideale-worflow" class="anchor" href="#der-ideale-worflow" aria-hidden="true"></a>Der ideale Worflow</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Grundprinzipien</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-von-grob-zu-fein" class="anchor" href="#von-grob-zu-fein" aria-hidden="true"></a>Von Grob zu Fein</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Wir fangen nicht an mit Modellieren, Animieren, Programmieren bevor wir nicht genau wissen was und warum.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Grob zu Fein = Arbeiten in Durchgängen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-iterativ" class="anchor" href="#iterativ" aria-hidden="true"></a>Iterativ</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Einmal durch und dann NOCH EINMAL DURCH</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>NICHT einen Teil komplett fertig und dann den nächsten Teil komplett fertig</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>damit man immer das ganze im Blick hat und WEIß, dass die Teile sinnvoll zusammenpassen werden</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Pro Durchgang Fokus auf einen Aspekt</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Fehler machen, daraus lernen, korrigieren</p>
+<p>Immer und immer wieder</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-vision-und-plan-kommunizieren" class="anchor" href="#vision-und-plan-kommunizieren" aria-hidden="true"></a>Vision und Plan kommunizieren</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Probieren =&gt; Entscheidungen festhalten</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Arbeitsaufwand schätzen</p>
+<p>Ressourcen und Schritte planen</p>
+<p>Arbeitspakete und Meilensteine abarbeiten</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>Von Grob zu Fein</li>
+<li>Iterativ immer und immer wieder probieren und verbessern</li>
+<li>Vision und Plan kommunizieren</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-konkrete-abläufe-einer-produktion" class="anchor" href="#konkrete-abläufe-einer-produktion" aria-hidden="true"></a>Konkrete Abläufe einer Produktion</h2>
+<p>Und wo passt da das Storyboard rein?</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-phase-1-wildes-sammeln" class="anchor" href="#phase-1-wildes-sammeln" aria-hidden="true"></a>Phase 1: Wildes Sammeln</h3>
+<ul>
+<li>Brainstorming Techniken</li>
+<li>Inspirationssammlung</li>
+<li>mögliche Szenen, Charaktere</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-phase-2-grundsteine-legen" class="anchor" href="#phase-2-grundsteine-legen" aria-hidden="true"></a>Phase 2: Grundsteine legen</h3>
+<ul>
+<li>(Aus)sortieren, Reduktion auf das Beste und Unterhaltsamste</li>
+<li>Storytelling-Strukturen: Heldenreise, 3-Akter, Szenendramaturgie</li>
+<li>Drehbuchfassungen</li>
+<li>grobes Storyboard</li>
+<li>Technische Tests, mögliche Pipeline</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>für Games:</p>
+<ul>
+<li>roher Prototyp, grobes Test-Level</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-phase-3-produktion-vorbereiten" class="anchor" href="#phase-3-produktion-vorbereiten" aria-hidden="true"></a>Phase 3: Produktion vorbereiten</h3>
+<ul>
+<li>Modelsheets</li>
+<li>Moodboards und Color Scripts</li>
+<li>feinere Storyboards &amp; Animatics</li>
+<li>Shotlists</li>
+<li>Produktionsplan</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>für Games:</p>
+<ul>
+<li>Backlog aller Features</li>
+<li>Framework</li>
+<li>Test-Assets, Vertical Slice</li>
+<li>Leveldesign mit Dummy Grafiken</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-phase-4-assetproduktion" class="anchor" href="#phase-4-assetproduktion" aria-hidden="true"></a>Phase 4: Assetproduktion</h3>
+<ul>
+<li>der Shotliste und dem Storyboard folgend</li>
+<li>Sets, Rigs, Props</li>
+<li>Produktionsplan</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-phase-5-umsetzung-mit-den-assets" class="anchor" href="#phase-5-umsetzung-mit-den-assets" aria-hidden="true"></a>Phase 5: Umsetzung mit den Assets</h3>
+<ul>
+<li>finales Storyboard bzw. Animatic</li>
+<li>Layout</li>
+<li>Blocking</li>
+<li>Animation</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>für Games:</p>
+<ul>
+<li>Leveldesign mit finalen Assets</li>
+<li>Testing &amp; Bugfixing</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-phase-6-verfeinern-releasevorbereitung" class="anchor" href="#phase-6-verfeinern-releasevorbereitung" aria-hidden="true"></a>Phase 6: Verfeinern, Releasevorbereitung</h3>
+<ul>
+<li>ggf. Überarbeitungen</li>
+<li>Verbesserung des zusammengesetzten Bildes - Compositing</li>
+<li>Konzentration auf Rendering und Export</li>
+<li>Presse, Marketing &amp; Festivals</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>für Games:</p>
+<ul>
+<li>Bugfixing, Testing</li>
+<li>Pre-Release, Reviews</li>
+<li>Messeauftritt</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-zweck-des-storyboards" class="anchor" href="#zweck-des-storyboards" aria-hidden="true"></a>Zweck des Storyboards</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>Teil des iterativen Arbeitens Phase 2 - 4</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-storyboard-als-ständiger-test" class="anchor" href="#storyboard-als-ständiger-test" aria-hidden="true"></a>Storyboard als ständiger Test</h3>
+<p>weil man sehen kann ob die Story, die Choreographie, der Witz, der Dialog, das Timing funktioniert</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>BEVOR man Wochen/Monate/Jahre Arbeit investiert</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>deshalb sollte es IMMER eine grobe Vorschau wie ein Storyboard (Animatic, Blocking) geben!</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Gibt es auch bei Games:</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>(Cutscenes)</li>
+<li>Überblick über Story (muss man ggf. dem Publisher vorstellen)</li>
+<li>Schlüsselmomente vorab simulieren</li>
+<li>Mockup des Gameplays</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-storyboard-als-bauplan" class="anchor" href="#storyboard-als-bauplan" aria-hidden="true"></a>Storyboard als Bauplan</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ein Storyboard ZEIGT</p>
+<ul>
+<li>Wer</li>
+<li>was</li>
+<li>wie</li>
+<li>wo</li>
+<li>welche Kamereinstellung</li>
+<li>welches Timing (Animatic)</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>unter Umständen genauer als ein Drehbuch</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>“Sie liefern sich einen knappen Schwertkampf auf Leben und Tod.”</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Wer schlägt wann zu, weicht wie aus, wie wird die Kamera geführt?</p>
+<p>Rhythmus und Intensität der Szene</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>für Animation besonders wichtig: Posen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Wichtige Planungsfaktoren:</p>
+<ul>
+<li>Dauer einer Szene/eines Shots</li>
+<li>Anzahl der Shots in welchen Sets</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Beispiel: Gravity Falls Intro</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lHr-dvYxP1I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-fokus-verschiedener-durchgänge" class="anchor" href="#fokus-verschiedener-durchgänge" aria-hidden="true"></a>Fokus verschiedener Durchgänge</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Neue Ideen und Änderungen führen zu neuen Durchgängen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Aber ein Durchgang kann auch ein bestimmtes Ziel verfolgen</p>
+<p>Beispiele…</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Durchgang 1:</p>
+<p>Story verständlich machen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Durchgang 2:</p>
+<p>Kamera verstärkend einsetzen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Druchgang 3:</p>
+<p>Posen verbessern</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Durchgang 4:</p>
+<p>Mehr Bilder fürs Animatic</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Durchgang 5:</p>
+<p>Mit final(er)en Designs arbeiten</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Durchgang 6:</p>
+<p>Posen pushen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Ziel Durchgang 7:</p>
+<p>Kamera pushen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Und dazwischen dauernd:</p>
+<p>Storyänderung</p>
+<p>neue Idee</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-bildliche-gestaltungsmittel" class="anchor" href="#bildliche-gestaltungsmittel" aria-hidden="true"></a>Bildliche Gestaltungsmittel</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-die-ziele" class="anchor" href="#die-ziele" aria-hidden="true"></a>Die Ziele:</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-verständlich" class="anchor" href="#verständlich" aria-hidden="true"></a>Verständlich</h4>
+<p>Was passiert?</p>
+<p>Übersicht</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-interessant" class="anchor" href="#interessant" aria-hidden="true"></a>Interessant</h4>
+<p>Ungewöhnliche Bilder, die im Kopf bleiben</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-spannend" class="anchor" href="#spannend" aria-hidden="true"></a>Spannend</h4>
+<p>Dramaturgie</p>
+<p>Spannung aufbauen (und lösen)</p>
+<p>Fragen aufwerfen (und klären)</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-realität-verstärken" class="anchor" href="#realität-verstärken" aria-hidden="true"></a>Realität verstärken</h4>
+<p>Inneres auf die Bildebene bringen</p>
+<p>Symbole</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-distanz-zur-kamera" class="anchor" href="#distanz-zur-kamera" aria-hidden="true"></a>Distanz zur Kamera</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-supertotale" class="anchor" href="#supertotale" aria-hidden="true"></a>Supertotale</h4>
+<p>Menschen oft sehr klein, nebensächlich. Fokus auf der Landschaft.</p>
+<p>Oft für Establishing Shot</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-totale-wide-shot-long-shot---ls" class="anchor" href="#totale-wide-shot-long-shot---ls" aria-hidden="true"></a>Totale (Wide Shot, Long Shot - LS)</h4>
+<p>Menschen erkennbar, aber deren Verhältnis zu Umgebung ist wichtiger als Details</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-halbtotale-medium-long-shot---mls" class="anchor" href="#halbtotale-medium-long-shot---mls" aria-hidden="true"></a>Halbtotale (Medium Long Shot - MLS)</h4>
+<p>Menschen komplett von Kopf bis Fuß</p>
+<p>oft für große Gesten und Splapstick</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-amerikanische-cowboy-knee-shot" class="anchor" href="#amerikanische-cowboy-knee-shot" aria-hidden="true"></a>Amerikanische (Cowboy, Knee Shot)</h4>
+<p>Waffengürtel</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-halbnahe-medium-shot---ms" class="anchor" href="#halbnahe-medium-shot---ms" aria-hidden="true"></a>Halbnahe (Medium Shot - MS)</h4>
+<p>Über Hüfte (unter Brust) bis Kopf</p>
+<p>Umgebung spielt noch eine Rolle</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-nahe-medium-close-up---mcu" class="anchor" href="#nahe-medium-close-up---mcu" aria-hidden="true"></a>Nahe (Medium Close Up - MCU)</h4>
+<p>Mitte Brust bis Kopf</p>
+<p>Umgebung spielt kaum eine Rolle, aber Figur hat noch eine physikalische Präsenz</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-großaufnahme-close-up---cu" class="anchor" href="#großaufnahme-close-up---cu" aria-hidden="true"></a>Großaufnahme (Close Up - CU)</h4>
+<p>Hals bis Stirn (oft angeschnitten)</p>
+<p>Augen oft prominent als Tor zur Seele/Emotion</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4><a id="user-content-detail-extreme-close-up" class="anchor" href="#detail-extreme-close-up" aria-hidden="true"></a>Detail (Extreme Close Up)</h4>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-distanz-von-objekten-zueinander-auch-in-der-tiefe" class="anchor" href="#distanz-von-objekten-zueinander-auch-in-der-tiefe" aria-hidden="true"></a>Distanz von Objekten zueinander (auch in der Tiefe!)</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-distanz-zu-bildrand" class="anchor" href="#distanz-zu-bildrand" aria-hidden="true"></a>Distanz zu Bildrand</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-schräge-der-kamera" class="anchor" href="#schräge-der-kamera" aria-hidden="true"></a>Schräge der Kamera</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-horizontaler-winkel-um-die-szene-herum" class="anchor" href="#horizontaler-winkel-um-die-szene-herum" aria-hidden="true"></a>Horizontaler Winkel um die Szene herum</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-vertikaler-winkel-unter-draufsicht" class="anchor" href="#vertikaler-winkel-unter-draufsicht" aria-hidden="true"></a>Vertikaler Winkel (Unter-/Draufsicht)</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-symbole" class="anchor" href="#symbole" aria-hidden="true"></a>Symbole</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>schneidende Linien</li>
+<li>getrennte Bereiche</li>
+<li>symbolträchtige Elemente (Uhr über dem Kopf)</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <iframe data-src="https://player.vimeo.com/video/122396167" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<small><a href="https://vimeo.com/122396167">The Ballad of Poisonberry Pete</a></small>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-zeichnerische-mittel" class="anchor" href="#zeichnerische-mittel" aria-hidden="true"></a>Zeichnerische Mittel</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Graustufen, Schattierungen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Gitternetze für Wand, Boden, Decke/Himmel</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/RobKooNotes_Donts.jpg" alt="Rob Koo Storyboarding Tip - Use perspective grids" width="500"></p>
+<p><small><a href="http://purgetheory.blogspot.com/2012/03/storydesign-notes.html?m=1">Rob Koo - Dreamworks Storytelling Notes</a></small></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/RobKooNotes_PrespectiveGrids.jpg" alt="Rob Koo Storyboarding Tip - Use perspective grids" width="500"></p>
+<p><small><a href="http://purgetheory.blogspot.com/2012/03/storydesign-notes.html?m=1">Rob Koo - Dreamworks Storytelling Notes</a></small></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/RobKooNotes_UseAngles.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="500"></p>
+<p><small><a href="http://purgetheory.blogspot.com/2012/03/storydesign-notes.html?m=1">Rob Koo - Dreamworks Storytelling Notes</a></small></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Nicht gut:</p>
+<ul>
+<li>nur Parallele</li>
+<li>auf Linien balancieren</li>
+<li>an den Rand quetschen</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Gut:</p>
+<ul>
+<li>Perspektivische Staffelung - Vorder-, Mittel-, Hintergrund</li>
+<li>Verschiedene Winkel</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Bewegungen der Kamera mit mehreren Pfeilen</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a id="user-content-kontext" class="anchor" href="#kontext" aria-hidden="true"></a>Kontext</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-klassische-exposition" class="anchor" href="#klassische-exposition" aria-hidden="true"></a>klassische Exposition</h3>
+<p>Von der Totalen immer Näher = immer intensiver</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-master-shot" class="anchor" href="#master-shot" aria-hidden="true"></a>Master Shot</h3>
+<p>Übersicht zu der immer zurück geschnitten wird (oft Long Shot, Medium Long Shot) z.B. alle Figuren an einem Tisch</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-montage-von-details" class="anchor" href="#montage-von-details" aria-hidden="true"></a>Montage von Details</h3>
+<p>zu einem Gesamtbild</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-schuss-gegenschuss" class="anchor" href="#schuss-gegenschuss" aria-hidden="true"></a>Schuss Gegenschuss</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/RobKooNotes_ShotReverseShot.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="600"></p>
+<p><small><a href="http://purgetheory.blogspot.com/2012/03/storydesign-notes.html?m=1">Rob Koo - Dreamworks Storytelling Notes</a></small></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/RobKooNotes_GroupShotReverseShot.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="600"></p>
+<p><small><a href="http://purgetheory.blogspot.com/2012/03/storydesign-notes.html?m=1">Rob Koo - Dreamworks Storytelling Notes</a></small></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-achse-und-achsensprung" class="anchor" href="#achse-und-achsensprung" aria-hidden="true"></a>Achse und Achsensprung</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-variation-des-winkel" class="anchor" href="#variation-des-winkel" aria-hidden="true"></a>Variation des Winkel</h3>
+<p>Beim Schnitt auch den Winkel wechseln = viel interessanter</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/kfpdvd_155.jpg" alt=""></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><img src="img/kfpdvd_156.jpg" alt=""></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3><a id="user-content-insert-shot" class="anchor" href="#insert-shot" aria-hidden="true"></a>Insert Shot</h3>
+<p>Detail das zwischengeschnitten wird z.B. Hand nimmt einen Gegenstand auf</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Schnitte sollen in Sinnabschnitten durch die Szene führen</p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_01.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+<p><small><a href="http://purgetheory.blogspot.com/2012/03/storydesign-notes.html?m=1">Rob Koo - Dreamworks Storytelling Notes</a></small></p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_02.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_03.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_04.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_05.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_06.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+
+            </section>
+    
+
+
+
+    
+        <section data-transition="none">
+            
+            <!-- .slide: data-transition="none" -->
+<p><img src="img/RobKooNotes_GoodCuts_07.jpg" alt="Rob Koo Storyboarding Tip - Use abgles" width="700"></p>
+
+            </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <script src="libs/reveal.js/3.8.0/lib/js/head.min.js"></script>
+  <script src="libs/reveal.js/3.8.0/js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        progress: true,
+        slideNumber: false,
+        history: true,
+        keyboard: true,
+        overview: true,
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: false,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: false,
+        autoSlide: 0,
+        autoSlideStoppable: true,
+        autoSlideMethod: Reveal.navigateNext,
+        defaultTiming: 120,
+        mouseWheel: false,
+        hideAddressBar: true,
+        previewLinks: false,
+        transition: 'concave',
+        transitionSpeed: 'default',
+        backgroundTransition: 'default',
+        viewDistance: 3,
+        parallaxBackgroundImage: '',
+        parallaxBackgroundSize: '',
+        parallaxBackgroundHorizontal: 0,
+        parallaxBackgroundVertical: 0,
+        display: 'block',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'libs/reveal.js/3.8.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+            // { src: 'libs/reveal.js/3.8.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            // { src: 'libs/reveal.js/3.8.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            // { src: 'libs/reveal.js/3.8.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+            { src: 'libs/reveal.js/3.8.0/plugin/notes/notes.js', async: true },
+            { src: 'libs/reveal.js/3.8.0/plugin/chart/Chart.min.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/chart/csv2chart.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/embed-tweet/embed-tweet.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/math/math.js', async: true },
+            { src: 'libs/highlight.js/9.12.0/highlight.js', async: true },
+            { src: 'libs/reveal.js/3.8.0/plugin/anything/anything.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },	
+
+           
+        { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+           
+
+           
+        { src: 'libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
+            
+
+            
+        { src: 'libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
+            
+
+            
+        { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
+
+            
+        { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            
+
+        {
+            src: 'libs/highlight.js/9.12.0/reveal-code-focus-1.0.0-mod.js',
+            async: true,
+            callback: function () {
+                RevealCodeFocus();
+            }
+        },
+            // { src: 'libs/reveal.js/3.8.0/plugin/reveal-code-focus/highlight.pack.js' },
+            // { src: 'libs/reveal.js/3.8.0/plugin/reveal-code-focus/reveal-code-focus.js', async: true, callback: function() { RevealCodeFocus(); } },
+           // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        ]
+        ,
+    keyboard: {
+        67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+        66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+        46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+        8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+        68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+    },
+    math: {
+       // mathjax: 'libs/reveal.js/3.8.0/plugin/math/MathJax.js',
+             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+    },
+    chart: {
+        defaults: {
+            global: {
+                title: { fontColor: "#FFF" },
+                legend: {
+                    position: "bottom",
+                        labels: { fontColor: "#FFF" },
+                },
+                tooltips: {
+                    labels: { fontColor: "#FFF" },
+                },
+            },
+            scale: {
+                scaleLabel: { fontColor: "#FFF" },
+                gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
+                ticks: { fontColor: "#FFF" },
+            }
+        },
+        line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
+        bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+        pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+        radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+    },
+    anything: [ 
+	 {
+	  className: "mermaid"
+	 },
+	 // ...
+	],
+    menu: {
+        // Specifies which side of the presentation the menu will 
+        // be shown. Use 'left' or 'right'.
+        side: 'left',
+
+            // Specifies the width of the menu.
+            // Can be one of the following:
+            // 'normal', 'wide', 'third', 'half', 'full', or
+            // any valid css length value
+            width: 'normal',
+
+                // Add slide numbers to the titles in the slide list.
+                // Use 'true' or format string (same as reveal.js slide numbers)
+                numbers: false,
+
+                    // Specifies which slide elements will be used for generating
+                    // the slide titles in the menu. The default selects the first
+                    // heading element found in the slide, but you can specify any
+                    // valid css selector and the text from the first matching
+                    // element will be used.
+                    // Note: that a section data-menu-title attribute or an element
+                    // with a menu-title class will take precedence over this option
+                    titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+                        // If slides do not have a matching title, attempt to use the
+                        // start of the text content as the title instead
+                        useTextContentForMissingTitles: false,
+
+                            // Hide slides from the menu that do not have a title.
+                            // Set to 'true' to only list slides with titles.
+                            hideMissingTitles: false,
+
+                                // Adds markers to the slide titles to indicate the 
+                                // progress through the presentation. Set to 'false'
+                                // to hide the markers.
+                                markers: true,
+
+                                    // Specify custom panels to be included in the menu, by
+                                    // providing an array of objects with 'title', 'icon'
+                                    // properties, and either a 'src' or 'content' property.
+                                    // custom: false,
+                                    custom: [],
+                                        // Specifies the themes that will be available in the themes
+                                        // menu panel. Set to 'true' to show the themes menu panel
+                                        // with the default themes list. Alternatively, provide an
+                                        // array to specify the themes to make available in the
+                                        // themes menu panel, for example...
+                                        // [
+                                        //     { name: 'Black', theme: 'css/theme/black.css' },
+                                        //     { name: 'White', theme: 'css/theme/white.css' },
+                                        //     { name: 'League', theme: 'css/theme/league.css' }
+                                        // ]
+                                        themes: false,
+
+                                            // Specifies the path to the default theme files. If your
+                                            // presentation uses a different path to the standard reveal
+                                            // layout then you need to provide this option, but only
+                                            // when 'themes' is set to 'true'. If you provide your own 
+                                            // list of themes or 'themes' is set to 'false' the 
+                                            // 'themesPath' option is ignored.
+                                            themesPath: 'css/theme/',
+
+                                                // Specifies if the transitions menu panel will be shown.
+                                                // Set to 'true' to show the transitions menu panel with
+                                                // the default transitions list. Alternatively, provide an
+                                                // array to specify the transitions to make available in
+                                                // the transitions panel, for example...
+                                                // ['None', 'Fade', 'Slide']
+                                                transitions: false,
+
+                                                    // Adds a menu button to the slides to open the menu panel.
+                                                    // Set to 'false' to hide the button.
+                                                    openButton: true,
+
+                                                        // If 'true' allows the slide number in the presentation to
+                                                        // open the menu panel. The reveal.js slideNumber option must 
+                                                        // be displayed for this to take effect
+                                                        openSlideNumber: false,
+
+                                                            // If true allows the user to open and navigate the menu using
+                                                            // the keyboard. Standard keyboard interaction with reveal
+                                                            // will be disabled while the menu is open.
+                                                            keyboard: true,
+
+                                                                // Normally the menu will close on user actions such as
+                                                                // selecting a menu item, or clicking the presentation area.
+                                                                // If 'true', the sticky option will leave the menu open
+                                                                // until it is explicitly closed, that is, using the close
+                                                                // button or pressing the ESC or m key (when the keyboard 
+                                                                // interaction option is enabled).
+                                                                sticky: false,
+
+                                                                    // If 'true' standard menu items will be automatically opened
+                                                                    // when navigating using the keyboard. Note: this only takes 
+                                                                    // effect when both the 'keyboard' and 'sticky' options are enabled.
+                                                                    autoOpen: true,
+
+                                                                        // If 'true' the menu will not be created until it is explicitly
+                                                                        // requested by calling RevealMenu.init(). Note this will delay
+                                                                        // the creation of all menu panels, including custom panels, and
+                                                                        // the menu button.
+                                                                        delayInit: false,
+
+                                                                            // If 'true' the menu will be shown when the menu is initialised.
+                                                                            openOnInit: false,
+
+                                                                                // By default the menu will load it's own font-awesome library
+                                                                                // icons. If your presentation needs to load a different
+                                                                                // font-awesome library the 'loadIcons' option can be set to false
+                                                                                // and the menu will not attempt to load the font-awesome library.
+                                                                                loadIcons: false
+    },
+    chalkboard: {
+        toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+        toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+
+    }
+    });
+
+
+
+</script>
+</body>
+
+</html>
